@@ -12,6 +12,8 @@ const useEventListener = (
       el.removeEventListener(eventName, handler);
     };
   }, [eventName, el]);
+
+  return null;
 };
 
 export default useEventListener;

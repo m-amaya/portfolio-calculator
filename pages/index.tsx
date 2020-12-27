@@ -1,12 +1,21 @@
 import styled from '@emotion/styled';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FC } from 'react';
 
+import FullCalculator from 'components/FullCalculator/FullCalculator';
+import SimpleCalculator from 'components/SimpleCalculator/SimpleCalculator';
+import bp from 'styles/breakpoints';
+import useWindowSize from 'utils/hooks/useWindowSize';
+
 const IndexPage: FC<{}> = () => {
+  const [width] = useWindowSize();
+
   return (
     <Page>
-      <FAIcon icon={faCheck} /> My App
+      {width && width > bp.tablet.portrait ? (
+        <FullCalculator />
+      ) : (
+        <SimpleCalculator />
+      )}
     </Page>
   );
 };
@@ -14,14 +23,8 @@ const IndexPage: FC<{}> = () => {
 const Page = styled.div({
   alignItems: 'center',
   display: 'flex',
-  fontSize: 30,
-  gap: 8,
   height: '100vh',
   justifyContent: 'center',
-});
-
-const FAIcon = styled(FontAwesomeIcon)({
-  color: '#00E676',
 });
 
 export default IndexPage;
