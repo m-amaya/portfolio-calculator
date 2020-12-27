@@ -43,7 +43,7 @@ const Area = styled.div<{ isFocused: boolean; isHover: boolean }>(
     color: '#212121',
     display: 'flex',
     flexDirection: 'column',
-    gridColumn: '1 / span 8',
+    gridColumn: '1 / span 7',
     height: 72,
     justifyContent: 'space-between',
     padding: '10px 12px',
